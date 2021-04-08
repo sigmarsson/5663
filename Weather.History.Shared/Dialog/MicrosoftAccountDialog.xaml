@@ -1,0 +1,36 @@
+﻿<ContentDialog
+    x:Class="Weather.History.Dialog.MicrosoftAccountDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:entity="using:Weather.History.UI.Entity"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Title="Account"
+    CloseButtonText="Close"
+    DefaultButton="None">
+
+    <ContentDialog.Resources>
+        <DataTemplate x:Key="MSAccountTemplate" x:DataType="entity:MicrosoftAccount">
+            <StackPanel Orientation="Horizontal">
+                <PersonPicture ProfilePicture="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                <StackPanel>
+                    <TextBlock Text="{x:Bind Email}"/>
+                    <TextBlock Text="{x:Bind AccountType}"/>
+                    <HyperlinkButton Content="Sign out" Click="OnSignOut" Tag="{x:Bind Email}"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </ContentDialog.Resources>
+    
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+        <TextBlock Text="Account you've added to this app" TextWrapping="Wrap" />
+        
+        <Grid>
+            
+            <ListBox ItemsSource="{x:Bind Accounts}" ItemTemplate="{StaticResource MSAccountTemplate}" />
+
+        </Grid>
+        
+    </StackPanel>
+
+</ContentDialog>

@@ -1,0 +1,49 @@
+<Page
+    x:Class="Weather.History.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Weather.History"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <NavigationView
+            x:Name="navigator"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleButtonVisible="False"
+            IsTabStop="False"
+            PaneDisplayMode="LeftCompact"
+            SelectionChanged="OnNavigate">
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    Content="Welcome"
+                    Icon="Home"
+                    Tag="WelcomeShellPage" />
+                <NavigationViewItem
+                    Content="About"
+                    Icon="PreviewLink"
+                    Tag="AboutPage" />
+                <NavigationViewItem
+                    Content="Console"
+                    Icon="ShowResults"
+                    Tag="ConsolePage" />
+                <NavigationViewItem
+                    Content="Weather"
+                    Icon="World"
+                    Tag="ContentPage" />
+                <NavigationViewItem
+                    Content="Log"
+                    Icon="More"
+                    Tapped="ShowLog" />
+                <NavigationViewItem
+                    Content="Account"
+                    Icon="Contact"
+                    Tapped="ShowAccounts" />
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="contentFrame" Margin="0,0,0,0" />
+            
+        </NavigationView>
+    </Grid>
+</Page>
